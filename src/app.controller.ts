@@ -8,7 +8,12 @@ export class AppController {
   constructor(private readonly feriadoService: FeriadosService) {}
 
   @Get('/feriados')
-  getHello(): Promise<Feriado[]> {
+  getFeriados(): Promise<Feriado[]> {
     return this.feriadoService.getFeriados();
+  }
+
+  @Get('/feriados/irrenunciables')
+  getFeriadosIrrenunciables(): Promise<Feriado[]> {
+    return this.feriadoService.getFeriadosIrrenunciables();
   }
 }

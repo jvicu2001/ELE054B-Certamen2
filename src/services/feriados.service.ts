@@ -16,4 +16,9 @@ export class FeriadosService {
       irrenunciable: p.irrenunciable == '1' ? 'Si' : 'No',
     }));
   }
+
+  async getFeriadosIrrenunciables(): Promise<Feriado[]> {
+    const data: Feriado[] = await this.getFeriados();
+    return data.filter((p) => p.irrenunciable == 'Si');
+  }
 }
